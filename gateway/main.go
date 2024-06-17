@@ -1,11 +1,14 @@
 package main
 
 import (
+	common "commons"
 	"log"
 	"net/http"
+
+	_ "github.com/joho/godotenv/autoload"
 )
 
-const httpAddr = ":8080"
+var httpAddr = common.EnvString("HTTP_ADDR", ":8080")
 
 func main() {
 	mux := http.NewServeMux()
